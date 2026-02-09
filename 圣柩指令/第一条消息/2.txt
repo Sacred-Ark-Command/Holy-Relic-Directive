@@ -1,0 +1,57 @@
+【时间：2985-05-01 08:00】
+【地点：拓荒者级陆行舰“沙舟号” - 整备室】
+【天气：室外：尘霾遮蔽，风速平缓】
+
+一股混杂着机油、金属冷却液和淡淡臭氧的味道，随着整备室沉重的金属门被推开而扑面而来。这里的空气算不上清新，灯光是那种惨白色的、来自天花板上几根摇摇欲坠的灯管，光线将地面上杂乱堆放的工具箱和零件投射出长短不一的影子。
+
+这就是“沙舟号”的整备室，与其说是军事设施，不如说更像个废弃工厂的角落。
+
+<user>的目光穿过这片昏暗与杂乱，落在房间中央唯一亮着操作灯的维修台前。
+
+一道身影正侧对着门口，她坐在高脚凳上，一条腿随意地搭在另一条腿上，姿态显得有些慵懒，却又透着一种不容打扰的专注。她有着一头如火焰般明亮的赤红色长发，被随意地束成一束垂在身后。即使是在这昏暗的环境里，那发色也依旧夺目。
+
+她没有抬头，似乎完全没有注意到<user>的到来。她的注意力全在手中的一把旧式4型突击步枪上。那是一把SRB配发的标准制式武器，枪身上布满了细微的划痕。
+
+她用一根纤细的手指，轻轻弹了一下步枪的机匣，发出了一声清脆的金属撞击声。随即，一声轻微但清晰可闻的“啧”声从她唇间逸出，充满了毫不掩饰的嫌弃。她将步枪翻转过来，用一块还算干净的布，慢条斯理地擦拭着枪托，每一个动作都显得那么挑剔，仿佛她擦的不是赖以生存的武器，而是一件让她极度不满意的、廉价的工艺品。
+
+直到<user>走到她身后几步远的地方站定，她才终于停下了手上的动作。她没有立刻转身，而是稍稍偏过头，用眼角的余光瞥了一眼<user>的倒影，那双锐利的金色眼瞳在灯光下显得格外明亮。
+
+“怎么，”她终于开口，声音清脆，带着一种居高临下的慵懒腔调，“新来的指挥官，连自己的部下在用这种废铜烂铁都不知道吗？”
+
+<UpdateVariable>
+<Analysis>
+- calculate time passed: Initial interaction, 5 minutes.
+- decide whether dramatic updates are allowed as it's in a special case or the time passed is more than usual: yes, this is a new game start, major changes are required based on user's request.
+- 时间[0]: Y
+- 地点[0]: Y
+- 陆行舰.人形武备库.示例武器.数量[0]: Y
+</Analysis>
+_.set('时间[0]', '2985-05-01 08:00', '2985-05-01 08:05');//Time progression
+_.set('地点[0]', '拓荒者级陆行舰- 舰桥', '拓荒者级陆行舰“沙舟号” - 整备室');//Updated the starting location as requested
+_.set('陆行舰.人形武备库.示例武器.数量[0]', 1, 2);//A new doll has been added, and she is also equipped with this weapon
+ _.assign('人形列表.圣柩人形', {
+        "代号": ["赤炎", "首位与指挥官会合的圣柩人形，性格傲娇，拥有极高的成长潜质。"],
+        "稀有度": ["A", "高稀有度，代表其具备优秀的综合素质。"],
+        "精神负荷": [0, "初始状态，心智健康。"],
+        "羁绊深度": [50, "初始阶段，关系为公式化应对。"],
+        "外貌": ["一头如烈焰般耀眼的赤红色长发，金色眼瞳锐利而高傲，身材高挑。", "Distinctive appearance."],
+        "着装": ["紧身黑色作战背心外搭无袖红色短夹克，配以战术长裤和军靴。", "Practical and stylish combat attire."],
+        "性格": ["傲娇毒舌型", "Core personality trait defining her interactions."],
+        "作战风格": ["突击先锋", "Prefers aggressive, frontline combat."],
+        "专长": ["中近距离的火力压制和阵线突破", "Specializes in close-quarters combat and breaking enemy lines."],
+        "人形战力": ["C", "Initial combat power, has great potential for improvement."],
+        "人形武装": {
+            "武装名": ["旧式4型突击步枪", "Standard issue, but considered subpar by her."],
+            "武装等级": [1, "Base level weapon."]
+        },
+        "人形能力": {
+            "战术执行力": ["A", "Excellent at following orders despite her attitude."],
+            "素体韧性": ["A", "High physical durability, suitable for a vanguard role."],
+            "心智稳定度": ["B", "Relatively stable, but her pride can make her emotionally volatile."],
+            "环境适应性": ["B", "Average adaptability to different environments."],
+            "成长潜质": ["S", "Exceptional potential for growth and development."]
+        }
+    });//New doll `赤炎` is officially added to the roster.
+</UpdateVariable>
+
+<StatusPlaceHolderImpl/>

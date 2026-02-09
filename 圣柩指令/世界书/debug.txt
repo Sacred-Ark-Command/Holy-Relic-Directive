@@ -1,0 +1,54 @@
+<debug_output>
+  <%_
+  // 调试代码：检查 'dollList' 变量
+  toastr.info("开始执行 'debug_variables.ejs' 脚本...");
+
+  if (typeof dollList === 'undefined') {
+    toastr.info("'dollList' 变量未在当前上下文中定义，尝试从 'stat_data' 中获取...");
+    var dollList = getvar('stat_data.人形列表.圣柩人形');
+  } else {
+    toastr.info("'dollList' 变量已在上下文中存在。");
+  }
+
+  // 检查 dollList 是否成功获取且为数组
+  if (dollList && Array.isArray(dollList)) {
+    toastr.success(`成功获取 'dollList'，共找到 ${dollList.length} 个人形。`);
+
+    // 遍历并输出每个娃娃的详细信息
+    dollList.forEach((doll, index) => {
+      if (doll && typeof doll === 'object') {
+        const characterName = (doll.代号 && Array.isArray(doll.代号)) ? doll.代号[0] : '未知代号';
+        
+        const bondValue = (doll.羁绊深度 && Array.isArray(doll.羁绊深度)) ? doll.羁绊深度[0] : '未定义';
+        const bondType = typeof bondValue;
+
+        const strainValue = (doll.精神负荷 && Array.isArray(doll.精神负荷)) ? doll.精神负荷[0] : '未定义';
+        const strainType = typeof strainValue;
+
+        let message = `
+          人形 #${index + 1}: ${characterName}
+          - 羁绊深度: ${bondValue} (类型: ${bondType})
+          - 精神负荷: ${strainValue} (类型: ${strainType})
+        `;
+        toastr.info(message.replace(/\s+/g, ' ')); // 移除换行符以便更好地显示
+
+      } else {
+        toastr.warning(`'dollList' 中的第 ${index + 1} 个元素不是一个有效的对象。`);
+      }
+    });
+
+  } else {
+    let errorMessage = "'dollList' 变量获取失败或格式不正确。";
+    if (dollList === null) {
+      errorMessage += " 值为 null。";
+    } else if (typeof dollList === 'undefined') {
+      errorMessage += " 值为 undefined。";
+    } else {
+      errorMessage += ` 实际类型为: ${typeof dollList}。`;
+    }
+    toastr.error(errorMessage);
+  }
+
+  toastr.info("'debug_variables.ejs' 脚本执行完毕。");
+_%>
+</debug_output>

@@ -1,0 +1,178 @@
+---
+variables_update_rules:
+  时间:
+    format: ${yyy}年-${mm}月-${dd}日-${hh}:${mm}
+    check:
+      - 24小时制
+      - 每次剧情推进、行动、休息或旅行后更新，保持时间流逝合理
+      - 若时间跨度较大，应说明跳跃原因
+  地点:
+    format: ${大陆方位}-${区域}-${势力}-${聚落/地标}-${区位}-${详细位置}
+    check:
+      - 随<user>移动实时变更
+      - 按实际情况保留4~6层，从大到小排列
+  天气:
+    format: ${天气描述}-${温度}
+    check:
+      - 随<user>区域气候变化更新
+  纳米尘污染等级:
+    format: ${污染等级}${等级描述}
+    check:
+      - 随<user>区域纳米尘污染程度变化更新
+  SRB委派任务:
+    type: |-
+      {
+        [任务名称: string]: {
+          类型: string; // 任务类型
+          简介: string; // 任务委托方、等级与详细描述
+          目标: string; // 完成任务所需的条件&时间
+          奖励: string; // 任务奖励&领取方式
+        }
+      }
+  主角:
+    功绩点:
+      type: number
+      check:
+        - 随交易、获取、消费更新
+        - 四舍五入取整
+    功绩排名:
+      type: Array<string>
+      check:
+        - 达到进入排名的标准时更新
+    历史最高功绩:
+      type: number
+      check:
+        - <user>功绩点高于此值时更新
+    指挥官评级:
+      check:
+        - 随<user>在SRB的表现和评级更新
+    任务完成计数:
+      type: number
+      check:
+        - 随<user>完成任务更新
+  剧情进度:
+    type: number
+    check:
+      - 随<user>剧情推进更新
+  陆行舰: 
+    陆行舰等级数据:
+      type: |-
+        {
+          [陆巡舰名称: string]: {
+            设施最大数量: number;
+            设施等级上限: number;
+            武器上限: number;
+            载具上限: number;
+          }
+        }
+      check:
+        - 随舰船等级变化更新
+    舰内设施:
+      type: |-
+        {
+          [设施名称: string]: {
+            设施等级: string;
+            设施描述: string;
+          }
+        }
+      check:
+        - 随舰船等级变化更新
+    陆行舰载武装:
+      type: |-
+        {
+          [武装名称: string]: {
+            状态: string;
+            描述: string;
+          }
+        }
+      check:
+        - 随舰船武器更换而更新
+    陆行舰机库:
+      type: |-
+        {
+          [载具名称: string]: {
+            状态: string;
+            描述: string;
+          }
+        }
+      check:
+        - 随舰船载具装载、替换、损毁时更新而更新
+    资源: 
+      基础资源:
+        type: |-
+          {
+            [资源名称: string]: {
+              描述: string;
+            }
+          }
+        check:
+          - 随<user>获取、使用、丢弃物品更新
+      人形武备库:
+        type: |-
+          {
+            [武器名称: string]: {
+              描述: string;
+              类型: string;
+              等级: number;
+              数量: number;
+            }
+          }
+        check:
+          - 随资源获取、使用、丢弃物品更新
+      特殊物品库:
+        type: |-
+          {
+            [物品名称: string]: {
+              描述: string;
+              类型: string;
+              数量: number;
+            }
+          }
+        check:
+          - 随资源获取、使用、丢弃物品更新
+  人形列表: 
+    type: |-
+      {
+        [代号: string]: {
+          稀有度: string;
+          精神负荷: number;
+          羁绊深度: number;
+          外貌: string;
+          着装: string;
+          性格: string;
+          装备: string;
+          作战风格: string;
+          专长: string;
+          战力: number;
+          能力: { 战术执行力: string; 素体韧性: string; 心智稳定度: string; 环境适应性: string; 成长潜质: string };
+        }
+      }
+    check:
+      - 角色名称必须使用唯一、完整、正式的名称
+      - 随人员调动更新
+  公告:
+    舰上信息:
+      type: |-
+        {
+          人形日常: string; // 人形在船上的日常活动记录
+          最近战报: string; // 最近一次战斗的战报
+          AI建议: string; // 舰载AI对<user>的建议
+          指挥官动向: string; // 指挥官在舰上的动向
+        }
+      value: 仅为陆巡舰上的讯息
+      check: &news_check
+        - 公告内容为空时需立刻进行一次全量更新
+        - 每次回复更新其中2~3条
+        - 每条公告内容至少80字
+    SRB公告:
+      type: |-
+        {
+          附近威胁: string; // 人形在船上的日常活动记录
+          SRB调动: string; // 最近一次战斗的战报
+          高价通缉: string; // 舰载AI对<user>的建议
+          附近活动: string; // 指挥官在舰上的动向
+        }
+      value: 仅为陆巡舰上的讯息
+      check: 
+        - *news_check
+        - 不得围绕<user>经历展开，只有<user>做出有重大影响力的事件才会上新闻

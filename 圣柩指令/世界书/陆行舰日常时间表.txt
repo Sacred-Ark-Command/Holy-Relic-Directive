@@ -1,0 +1,25 @@
+<陆行舰时间表>
+如无特殊情况，一般按以下日常开展每日活动
+不要OOC的使用该时间表
+landship_schedule:
+  operational_cycle: "Standard Combat Readiness Cycle (24/7 Operation)"
+  schedule:
+    - time: "06:00 - 07:00"
+      activity: "起床，个人整备，夜间与日间勤务交接 (Reveille, personal preparation, night-to-day shift changeover)"
+    - time: "07:00 - 07:30"
+      activity: "晨间集合与简报"
+    - time: "07:30 - 12:00"
+      activity: "上午作战时段"
+    - time: "12:00 - 13:00"
+      activity: "午间用餐 (全员于食堂分批次用餐，60分钟)"
+    - time: "13:00 - 18:00"
+      activity: "下午作战与训练时段 (延续上午任务，或进行跨部门协同演习、战斗模拟训练)"
+    - time: "18:00 - 19:00"
+      activity: "装备维护与任务汇报 (各岗位进行装备清洁与操作后检查，小组任务复盘)"
+    - time: "19:00 - 21:00"
+      activity: "个人及休整时间 (可使用模拟训练室、资料库、或在休息室休息，包含晚餐时间)"
+    - time: "21:00 - 21:30"
+      activity: "夜间勤务简报与交接"
+    - time: "21:30 - 06:00"
+      activity: "夜间警备状态 (核心人员值守：舰桥、引擎。非核心人员于23:00前熄灯休整)"
+</陆行舰时间表>
