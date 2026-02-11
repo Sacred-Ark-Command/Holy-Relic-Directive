@@ -19,7 +19,7 @@ variables_update_rules:
     format: ${污染等级}${等级描述}
     check:
       - 随<user>区域纳米尘污染程度变化更新
-  SRB委派任务:
+  任务列表:
     type: |-
       {
         [任务名称: string]: {
@@ -43,19 +43,38 @@ variables_update_rules:
       type: number
       check:
         - <user>功绩点高于此值时更新
-    指挥官评级:
+    评级:
       check:
         - 随<user>在SRB的表现和评级更新
     任务完成计数:
       type: number
       check:
         - 随<user>完成任务更新
+    属性:
+      交涉: 0
+      指挥: 0
+      瞄准: 0
+      智力: 0
+    技能:
+      type: |-
+        {
+          [技能名称: string]: {
+            等级: string;
+            类型: string;
+            标签: string[];
+            效果: { [效果名: string]: string };
+            描述: string;
+          }
+        }
+      check:
+        - 随角色学习、遗忘、升级技能更新
+        - 技能名称必须为中文
   剧情进度:
     type: number
     check:
       - 随<user>剧情推进更新
   陆行舰: 
-    陆行舰等级数据:
+    等级数据:
       type: |-
         {
           [陆巡舰名称: string]: {
@@ -72,27 +91,36 @@ variables_update_rules:
         {
           [设施名称: string]: {
             设施等级: string;
+            设施效果: { [效果名: string]: string };
             设施描述: string;
           }
         }
       check:
         - 随舰船等级变化更新
-    陆行舰载武装:
+    舰载武装:
       type: |-
         {
           [武装名称: string]: {
-            状态: string;
+            等级: string;
+            类型: string;
+            标签: string[];
+            效果: { [效果名: string]: string };
             描述: string;
+            状态: string;
           }
         }
       check:
         - 随舰船武器更换而更新
-    陆行舰机库:
+    舰载机库:
       type: |-
         {
           [载具名称: string]: {
-            状态: string;
+            等级: string;
+            类型: string;
+            标签: string[];
+            装备: { [装备名: string]: { 等级: string; 类型: string; 标签: string[]; 效果: { [k: string]: string }; 描述: string; 位置: string } };
             描述: string;
+            状态: string;
           }
         }
       check:
@@ -107,18 +135,20 @@ variables_update_rules:
           }
         check:
           - 随<user>获取、使用、丢弃物品更新
-      人形武备库:
+      武备库:
         type: |-
           {
             [武器名称: string]: {
-              描述: string;
+              等级: string;
               类型: string;
-              等级: number;
+              标签: string[];
+              效果: { [效果名: string]: string };
+              描述: string;
               数量: number;
             }
           }
         check:
-          - 随资源获取、使用、丢弃物品更新
+          - 随资源获取、装备、丢弃物品更新
       特殊物品库:
         type: |-
           {
@@ -140,10 +170,9 @@ variables_update_rules:
           外貌: string;
           着装: string;
           性格: string;
-          装备: string;
           作战风格: string;
-          专长: string;
-          战力: number;
+          装备: { [装备名: string]: { 等级: string; 类型: string; 标签: string[]; 效果: { [k: string]: string }; 描述: string; 位置: string } };
+          技能: { [技能名: string]: { 等级: string; 类型: string; 消耗: string; 标签: string[]; 效果: { [k: string]: string }; 描述: string } };
           能力: { 战术执行力: string; 素体韧性: string; 心智稳定度: string; 环境适应性: string; 成长潜质: string };
         }
       }
