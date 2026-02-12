@@ -173,7 +173,7 @@ variables_update_rules:
         [代号: string]: {
           稀有度: string;
           精神负荷: number;
-          羁绊深度: number;
+          好感: number;
           外貌: string;
           着装: string;
           性格: string;
