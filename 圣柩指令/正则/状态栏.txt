@@ -1755,7 +1755,7 @@
 
       async function initDisplay() {
         try {
-          const messageVars = getVariables({type: 'message', message_id: 'latest'});
+          const messageVars = getMessageVariables({type: 'message', message_id: 'latest'});
           if (!messageVars || !messageVars.stat_data) {
             document.getElementById('status-display').innerHTML =
               "<p style='color:red;padding:10px;'>无法加载状态数据 (stat_data missing)</p>";

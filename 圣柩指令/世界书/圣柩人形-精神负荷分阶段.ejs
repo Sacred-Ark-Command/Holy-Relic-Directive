@@ -5,7 +5,7 @@
   变化倾向: [当精神负荷数值接近下一阶段的临界点时，人形会开始展现“变化倾向”中描述的行为，作为其状态即将恶化的预警信号。]
 
   <%_ {
-  let dollList = getvar('stat_data.人形列表', { defaults: {} });
+  let dollList = getMessageVar('stat_data.人形列表', { defaults: {} });
   if (dollList && typeof dollList === 'object') {
   Object.entries(dollList).forEach(([name, doll]) => {
     if (!doll || typeof doll !== 'object') return;

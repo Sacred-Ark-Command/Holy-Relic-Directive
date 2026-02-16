@@ -1,10 +1,10 @@
 <arkroid_personality_display>
 角色性格:
   描述: [根据当前圣柩人形的“性格”变量，显示其对应的详细性格、行为和互动模式。]
-  数据来源: [getvar('stat_data.人形列表.*.性格')]
+  数据来源: [getMessageVar('stat_data.人形列表.*.性格')]
 
   <%_ {
-  let dollList = getvar('stat_data.人形列表', { defaults: {} });
+  let dollList = getMessageVar('stat_data.人形列表', { defaults: {} });
   if (dollList && typeof dollList === 'object') {
   Object.entries(dollList).forEach(([name, doll]) => {
     if (!doll || typeof doll !== 'object') return;
