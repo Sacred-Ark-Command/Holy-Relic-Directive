@@ -84,10 +84,11 @@ variables_update_rules:
         {
           [陆行舰名称: string]: {
             陆行舰等级: string;
-            设施最大数量: number;
+            陆行舰描述: string;
+            设施容量: number;
             设施等级上限: number;
-            武器上限: number;
-            载具上限: number;
+            武器容量: number;
+            载具容量: number;
           }
         }
       check:
@@ -125,6 +126,7 @@ variables_update_rules:
             装备: { [装备名: string]: { 等级: string; 类型: string; 效果: { [k: string]: string }; 描述: string; 位置: string } };
             描述: string;
             状态: string;
+            占容: number;
           }
         }
       check:
