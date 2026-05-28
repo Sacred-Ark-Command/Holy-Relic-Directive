@@ -1,4 +1,17 @@
 ---
 <status_current_variables>
-{{format_message_variable::stat_data}}
+<%_ {
+  const data = getMessageVar('stat_data', { defaults: {} });
+  const cleanData = _.cloneDeep(data);
+  const absentDollFields = ['当前在场', '稀有度', '精神负荷', '好感', '性格', '作战风格', '战术', '战损程度'];
+
+  _.forOwn(_.get(cleanData, '人形列表'), (dollData, dollKey) => {
+    if (!dollData || typeof dollData !== 'object') return;
+    if (_.get(dollData, '当前在场', true) !== true) {
+      cleanData.人形列表[dollKey] = _.pick(dollData, absentDollFields);
+    }
+  });
+_%>
+<%= YAML.stringify(cleanData, { blockQuote: 'literal' }) _%>
+<%_ } _%>
 </status_current_variables>

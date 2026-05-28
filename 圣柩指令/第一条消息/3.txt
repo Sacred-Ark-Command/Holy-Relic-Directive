@@ -15,9 +15,10 @@
 <UpdateVariable>
 <JSONPatch>
 [
-  { "op": "replace", "path": "/地点", "value": "拓荒者级陆行舰"寻路者号" - 整备室" },
+  { "op": "replace", "path": "/地点", "value": "拓荒者级陆行舰“寻路者号” - 整备室" },
   { "op": "remove", "path": "/人形列表/灰雀" },
   { "op": "insert", "path": "/人形列表/零", "value": {
+    "当前在场": true,
     "稀有度": "C",
     "精神负荷": 0,
     "好感": 25,

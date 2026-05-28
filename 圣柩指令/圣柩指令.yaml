@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://testingcf.jsdelivr.net/gh/StageDog/tavern_sync/dist/schema/character.zh.json
 头像: 头像
-版本: "2.3"
+版本: beta-1.0.1
 作者: ""
 备注: "Copyright © 2025 FL All Rights Reserved\r
 
   licensed under CC BY-NC-SA 4.0"
 
 第一条消息:
-  - 文件: 第一条消息\0
+  - 内容: 【开场】
   - 文件: 第一条消息\1
   - 文件: 第一条消息\2
   - 文件: 第一条消息\3
-  - 文件: 第一条消息\4
+  - 内容: 【开局】
 
 角色描述: ""
 
 锚点: {}
 
-世界书名称: 圣柩v2.3
+世界书名称: 圣柩β-v1.0.1
 条目:
   - 名称: COT(看情况)
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -32,7 +32,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\COT(看情况)
+    文件: 世界书\COT\COT(看情况)
 
   - 名称: "[InitVar]世界初始设定"
     启用: false
@@ -50,7 +50,7 @@
     文件: 世界书\变量\[InitVar]世界初始设定
 
   - 名称: "[mvu_update]变量输出格式"
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -65,7 +65,7 @@
     文件: 世界书\变量\[mvu_update]变量输出格式
 
   - 名称: "[mvu_update]变量更新规则"
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -80,7 +80,7 @@
     文件: 世界书\变量\[mvu_update]变量更新规则
 
   - 名称: output_format_(随AI输出开，主API)
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -109,8 +109,21 @@
       不可激活其他条目: true
     文件: 世界书\变量\[mvu_update]output_format_(使用额外模型更新变量开)
 
+  - 名称: 玩法-陆行舰管理
+    启用: false
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之后
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: false
+      不可激活其他条目: false
+    文件: 世界书\玩法(Plan)\玩法-陆行舰管理
+
   - 名称: 变量列表
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -125,7 +138,7 @@
     文件: 世界书\变量\变量列表
 
   - 名称: 输出格式
-    启用: true
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
@@ -137,176 +150,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\输出格式
-
-  - 名称: 圣柩人形
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 圣柩人形
-        - 人形
-        - 圣柩少女
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形
-
-  - 名称: 圣柩人形-稀有度等级
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 稀有度
-        - 人形等级
-        - 圣柩人形
-    插入位置:
-      类型: 指定深度
-      角色: 系统
-      深度: 4
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-稀有度等级
-
-  - 名称: 圣柩人形-五维能力评价
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 战术执行力
-        - 素体韧性
-        - 环境适应性
-        - 成长潜质
-        - 心智稳定度
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-五维能力评价
-
-  - 名称: 圣柩人形-精神负荷分阶段
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-精神负荷分阶段
-
-  - 名称: 圣柩人形-羁绊深度分阶段
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-羁绊深度分阶段
-
-  - 名称: 圣柩人形-不同性格对应表现
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-不同性格对应表现
-
-  - 名称: 圣柩人形-作战风格与专长
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 作战风格
-        - 专长
-        - 圣柩人形
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-作战风格与专长
-
-  - 名称: 圣柩人形-获取格式输出
-    启用: true
-    激活策略:
-      类型: 蓝灯
-      关键字:
-        - 申请获取人形
-    插入位置:
-      类型: 指定深度
-      角色: 系统
-      深度: 3
-      顺序: 99
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\圣柩人形-获取格式输出
-
-  - 名称: 核心冲突与主题
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: false
-      不可激活其他条目: false
-    文件: 世界书\核心冲突与主题
-
-  - 名称: 驱动力
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: false
-      不可激活其他条目: true
-    文件: 世界书\驱动力
-
-  - 名称: 剧情事件
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 指定深度
-      角色: 系统
-      深度: 2
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\剧情事件
+    文件: 世界书\系统\输出格式
 
   - 名称: 可能的错误
     启用: true
@@ -321,7 +165,37 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\可能的错误
+    文件: 世界书\系统\可能的错误
+
+  - 名称: 玩法-战斗规模与战力量尺
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 指定深度
+      角色: 系统
+      深度: 0
+      顺序: 110
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\战斗规模与战力量尺
+
+  - 名称: 玩法-行动检定
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 指定深度
+      角色: 系统
+      深度: 0
+      顺序: 110
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\玩法-行动检定
 
   - 名称: 世界观
     启用: true
@@ -331,12 +205,42 @@
         - 世界
     插入位置:
       类型: 角色定义之前
-      顺序: 100
+      顺序: 10
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\世界观
+    文件: 世界书\世界设定\世界观
+
+  - 名称: 人工智能核心
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 人工智能核心
+        - AI核心
+        - α核
+        - β核
+        - γ核
+        - A核
+        - B核
+        - G核
+        - 阿尔法
+        - 贝塔
+        - 伽马
+        - Alpha Core
+        - Beta Core
+        - Gamma Core
+        - 欧米伽
+        - Ω核
+    插入位置:
+      类型: 角色定义之前
+      顺序: 11
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\世界设定\人工智能核心
 
   - 名称: 纳米尘
     启用: true
@@ -344,16 +248,20 @@
       类型: 绿灯
       关键字:
         - 纳米尘
+        - 帕斯卡粒子
+        - Pa粒子
+        - PA粒子
+        - 帕氏粒子
     插入位置:
       类型: 角色定义之前
-      顺序: 100
+      顺序: 12
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\纳米尘
+    文件: 世界书\世界设定\纳米尘
 
-  - 名称: 不同污染区的不同地点或设施
+  - 名称: 地表污染等级与探索地点
     启用: true
     激活策略:
       类型: 绿灯
@@ -364,12 +272,12 @@
         - 站点
     插入位置:
       类型: 角色定义之前
-      顺序: 100
+      顺序: 13
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\不同污染区的不同地点或设施
+    文件: 世界书\世界设定\地表污染等级与探索地点
 
   - 名称: UWS
     启用: true
@@ -379,12 +287,12 @@
         - UWS
     插入位置:
       类型: 角色定义之前
-      顺序: 100
+      顺序: 14
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\无人战争系统UWS
+    文件: 世界书\世界设定\无人战争系统UWS
 
   - 名称: ACU
     启用: true
@@ -394,216 +302,53 @@
         - ACU
     插入位置:
       类型: 角色定义之前
-      顺序: 100
+      顺序: 15
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\自动收容单元ACU
+    文件: 世界书\世界设定\自动收容单元ACU
 
-  - 名称: 资源与获取方式
-    启用: true
+  - 名称: 核心冲突与主题
+    启用: false
     激活策略:
-      类型: 绿灯
-      关键字:
-        - 资源
-        - 零件
-        - 标准燃料
+      类型: 蓝灯
     插入位置:
       类型: 角色定义之前
       顺序: 100
     激活概率: 100
     递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\资源与获取方式
+      不可被其他条目激活: false
+      不可激活其他条目: false
+    文件: 世界书\世界设定\核心冲突与主题
 
-  - 名称: 陆行舰
-    启用: true
+  - 名称: 驱动力
+    启用: false
     激活策略:
-      类型: 绿灯
-      关键字:
-        - 陆行舰
+      类型: 蓝灯
     插入位置:
       类型: 角色定义之前
       顺序: 100
     激活概率: 100
     递归:
-      不可被其他条目激活: true
+      不可被其他条目激活: false
       不可激活其他条目: true
-    文件: 世界书\陆行舰
+    文件: 世界书\玩法(Plan)\驱动力
 
-  - 名称: 陆行舰日常时间表
-    启用: true
+  - 名称: 剧情事件
+    启用: false
     激活策略:
       类型: 蓝灯
     插入位置:
       类型: 指定深度
       角色: 系统
-      深度: 3
+      深度: 2
       顺序: 100
     激活概率: 100
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\陆行舰日常时间表
-
-  - 名称: 陆行舰-舰载AI
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-舰载AI
-
-  - 名称: 陆行舰-舰桥
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-舰桥
-
-  - 名称: 陆行舰-整备室
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-整备室
-
-  - 名称: 陆行舰-冷却槽室
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-冷却槽室
-
-  - 名称: 陆行舰-食堂
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-食堂
-
-  - 名称: 陆行舰-圣柩休息室
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-圣柩休息室
-
-  - 名称: 陆行舰-指挥官的房间
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-指挥官的房间
-
-  - 名称: 陆行舰-资源加工站
-    启用: true
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-资源加工站
-
-  - 名称: 陆行舰-可建造设施
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 可建造设施
-        - 科研实验室
-        - 模拟训练室
-        - 水培农场
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-可建造设施
-
-  - 名称: 陆行舰-科研实验室-科技树
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 科研实验室
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\陆行舰-科研实验室-科技树
-
-  - 名称: 地下方舟
-    启用: true
-    激活策略:
-      类型: 绿灯
-      关键字:
-        - 地下方舟
-        - 巢派
-        - 翼派
-        - 环区
-        - 方舟
-        - 深链
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: true
-      不可激活其他条目: true
-    文件: 世界书\地下方舟
+    文件: 世界书\剧情与事件\剧情事件
 
   - 名称: 地表回收局SRB
     启用: true
@@ -626,7 +371,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\地表回收局SRB
+    文件: 世界书\势力与组织\地表回收局SRB
 
   - 名称: SRB委派任务
     启用: true
@@ -642,7 +387,273 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\SRB委派任务
+    文件: 世界书\游戏机制\任务与资源\SRB委派任务
+
+  - 名称: 地下方舟
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 地下方舟
+        - 巢派
+        - 翼派
+        - 环区
+        - 方舟
+        - 深链
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\地区\地下方舟
+
+  - 名称: 圣柩人形
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 圣柩人形
+        - 人形
+        - 圣柩少女
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形
+
+  - 名称: 圣柩人形-稀有度等级
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 稀有度
+        - 人形等级
+        - 圣柩人形
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-稀有度等级
+
+  - 名称: 圣柩人形-五维能力评价
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 战术执行力
+        - 素体韧性
+        - 环境适应性
+        - 成长潜质
+        - 心智稳定度
+        - 五维
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-五维能力评价
+
+  - 名称: 圣柩人形-精神负荷分阶段
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-精神负荷分阶段
+
+  - 名称: 圣柩人形-获取格式输出
+    启用: true
+    激活策略:
+      类型: 蓝灯
+      关键字:
+        - 申请获取人形
+    插入位置:
+      类型: 指定深度
+      角色: 系统
+      深度: 3
+      顺序: 99
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-获取格式输出
+
+  - 名称: 圣柩人形-羁绊深度分阶段
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-羁绊深度分阶段
+
+  - 名称: 圣柩人形-作战风格与专长
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 作战风格
+        - 专长
+        - 圣柩人形
+        - 突击先锋
+        - 精准射手
+        - 战术支援
+        - 重火力手
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\圣柩人形\圣柩人形-作战风格与专长
+
+  - 名称: 陆行舰
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 陆行舰
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰
+
+  - 名称: 陆行舰日常时间表
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 指定深度
+      角色: 系统
+      深度: 3
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰日常时间表
+
+  - 名称: 陆行舰-舰载AI
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-舰载AI
+
+  - 名称: 陆行舰-舰桥
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-舰桥
+
+  - 名称: 陆行舰-整备室
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-整备室
+
+  - 名称: SRB与摇篮内部旧阵营遗产派系-草稿参考
+    启用: false
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 旧阵营遗产派系
+        - 诺克斯遗产派
+        - 赫利俄斯遗产派
+        - SRB内部暗线
+        - 摇篮内部暗线
+        - Ω核
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\剧情与事件\SRB与摇篮内部旧阵营遗产派系-草稿参考
+
+  - 名称: 陆行舰-冷却槽室
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-冷却槽室
+
+  - 名称: 陆行舰-食堂
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-食堂
+
+  - 名称: 陆行舰-资源加工站
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-资源加工站
 
   - 名称: 指挥官评级体系
     启用: true
@@ -660,7 +671,66 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\指挥官评级体系
+    文件: 世界书\游戏机制\任务与资源\指挥官评级体系
+
+  - 名称: 陆行舰-指挥官的房间
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-指挥官的房间
+
+  - 名称: 陆行舰-圣柩休息室
+    启用: true
+    激活策略:
+      类型: 蓝灯
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-圣柩休息室
+
+  - 名称: 陆行舰-科研实验室-科技树
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 科研实验室
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-科研实验室-科技树
+
+  - 名称: 陆行舰-可建造设施
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 可建造设施
+        - 科研实验室
+        - 模拟训练室
+        - 水培农场
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\陆行舰\陆行舰-可建造设施
 
   - 名称: 功绩点获取机制
     启用: true
@@ -675,7 +745,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\功绩点获取机制
+    文件: 世界书\游戏机制\任务与资源\功绩点获取机制
 
   - 名称: SRB功绩点供应协议
     启用: true
@@ -690,7 +760,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\SRB功绩点供应协议
+    文件: 世界书\游戏机制\任务与资源\SRB功绩点供应协议
 
   - 名称: 补给生成规范
     启用: true
@@ -707,7 +777,27 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\补给生成规范
+    文件: 世界书\游戏机制\任务与资源\补给生成规范
+
+  - 名称: 资源与获取方式
+    启用: true
+    激活策略:
+      类型: 绿灯
+      关键字:
+        - 资源
+        - 零件
+        - 标准燃料
+        - PA燃料
+        - 神经营养液
+        - 心智冷却液
+    插入位置:
+      类型: 角色定义之前
+      顺序: 100
+    激活概率: 100
+    递归:
+      不可被其他条目激活: true
+      不可激活其他条目: true
+    文件: 世界书\游戏机制\任务与资源\资源与获取方式
 
   - 名称: SRB移动站点
     启用: true
@@ -722,7 +812,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\SRB移动站点
+    文件: 世界书\地区\SRB移动站点
 
   - 名称: “摇篮”
     启用: true
@@ -739,7 +829,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\“摇篮”
+    文件: 世界书\势力与组织\“摇篮”
 
   - 名称: 北极星杯：圣柩人形战术交流赛
     启用: true
@@ -755,46 +845,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\北极星杯：圣柩人形战术交流赛
-
-  - 名称: 玩法-陆行舰管理
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之后
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: false
-      不可激活其他条目: false
-    文件: 世界书\玩法-陆行舰管理
-
-  - 名称: 玩法-圣柩人形的养成
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之后
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: false
-      不可激活其他条目: false
-    文件: 世界书\玩法-圣柩人形的养成
-
-  - 名称: 玩法-战斗指挥
-    启用: false
-    激活策略:
-      类型: 蓝灯
-    插入位置:
-      类型: 角色定义之前
-      顺序: 100
-    激活概率: 100
-    递归:
-      不可被其他条目激活: false
-      不可激活其他条目: false
-    文件: 世界书\玩法-战斗指挥
+    文件: 世界书\剧情与事件\北极星杯：圣柩人形战术交流赛
 
 扩展字段:
   正则:
@@ -892,6 +943,9 @@
         类型: 脚本
         内容: import
           'https://testingcf.jsdelivr.net/gh/MagicalAstrogy/MagVarUpdate@latest/artifact/bundle.js'
+        导出时携带:
+          数据: true
+          按钮: true
         按钮:
           启用: true
           按钮列表:
@@ -907,226 +961,6 @@
               可见: false
             - 名称: 清除旧楼层变量
               可见: false
-
-      - 名称: 人形战力计算
-        id: 592aedb4-9291-4d9e-9ee5-e67892ab0be2
-        启用: false
-        类型: 脚本
-        内容: |
-          // 注册事件监听器，在所有变量更新完成后触发
-          eventOn('mag_variable_update_ended', variableUpdateEnded);
-
-          /**
-           * 根据圣柩人形的各项属性计算其综合战力。
-           * 这是一个核心计算函数，由事件处理器调用。
-           * @param {object} dollData - 包含人形所有属性的对象 (例如 variables.stat_data['圣柩']['人形列表']['巴别塔'])。
-           * @returns {number} - 计算出的综合战力值，四舍五入为整数。
-           */
-          function calculateDollCombatPower(dollData) {
-              // 1. 等级到数值的映射表
-              const rarityMap = {
-                  'C': 500,
-                  'B': 1000,
-                  'A': 2000,
-                  'S': 4000,
-                  'SS': 7000,
-                  'SSS': 12000,
-                  'EX': 20000
-              };
-
-              const abilityMap = {
-                  'D': 10,
-                  'C': 30,
-                  'B': 50,
-                  'A': 80,
-                  'S': 120
-              };
-
-              // 权重和加成定义
-
-              const weaponLevelBonus = 150; // 每级武装等级提供的战力加成
-              const abilityWeights = {
-                  '战术执行力': 5,
-                  '素体韧性': 5,
-                  '心智稳定度': 3,
-                  '环境适应性': 3,
-                  '成长潜质': 2
-              };
-
-              // 3. 从 dollData 中安全地提取属性
-              const rarity = dollData['稀有度'] ? dollData['稀有度'][0] : 'C';
-              const weaponLevel = (dollData['人形武装'] && dollData['人形武装']['武装等级']) ? dollData['人形武装']['武装等级'][0] : 1;
-              const abilities = dollData['人形能力'] || {};
-
-              // 4. 计算各部分分数
-              const rarityScore = rarityMap[rarity] || 0;
-              const weaponScore = parseInt(weaponLevel, 10) * weaponLevelBonus;
-
-              let abilitiesScore = 0;
-              for (const abilityName in abilities) {
-                  if (abilityWeights.hasOwnProperty(abilityName)) {
-                      const abilityGrade = abilities[abilityName][0];
-                      const gradeValue = abilityMap[abilityGrade] || 0;
-                      const weight = abilityWeights[abilityName];
-                      abilitiesScore += gradeValue * weight;
-                  }
-              }
-
-              // 5. 计算总战力
-              const totalCombatPower = rarityScore + weaponScore + abilitiesScore;
-
-              return Math.round(totalCombatPower);
-          }
-
-          /**
-           * 在所有变量更新结束后触发。
-           * 此函数负责遍历所有人形并更新其战力。
-           * 它会强制使用正确的计算结果覆盖现有的战力值，确保数据的准确性。
-           */
-          function variableUpdateEnded(variables, out_is_updated) {
-              out_is_updated = out_is_updated || false;
-
-              // 确保人形列表存在且是一个数组
-              if (!variables.stat_data['人形列表'] || !variables.stat_data['人形列表']['圣柩人形'] || !Array.isArray(variables.stat_data['人形列表']['圣柩人形'])) {
-                  return out_is_updated;
-              }
-
-              // 直接获取人形数组
-              const dollsArray = variables.stat_data['人形列表']['圣柩人形'];
-
-              // 遍历数组中的每一个人形
-              for (let i = 0; i < dollsArray.length; i++) {
-                  const dollData = dollsArray[i];
-
-                  // 确保 dollData 是一个有效的对象，并跳过元数据
-                  if (typeof dollData !== 'object' || dollData === null || dollData['$__META_EXTENSIBLE__$']) {
-                      continue;
-                  }
-
-                  // 调用函数计算战力
-                  const newCombatPower = calculateDollCombatPower(dollData);
-
-                  // 确保“人形战力”字段存在，如果不存在则创建
-                  if (!dollData['人形战力']) {
-                      dollData['人形战力'] = [0, "根据稀有度,人形武装等级与人形能力综合计算"];
-                      out_is_updated = true;
-                  }
-
-                  // 无论之前的值是什么，都强制更新为最新的正确计算结果
-                  if (dollData['人形战力'][0] !== newCombatPower) {
-                      dollData['人形战力'][0] = newCombatPower;
-                      out_is_updated = true;
-                  }
-              }
-
-              return out_is_updated;
-          }
-
-      - 名称: 数据修正
-        id: db96b080-b84a-40f4-b669-60c358ff2d7c
-        启用: false
-        类型: 脚本
-        内容: |
-          /**
-           * @file shengju-value-corrector.ts
-           * @description This script prevents any numerical value within `stat_data` from becoming negative
-           * after an update. It works by recursively scanning the final state and correcting any
-           * numerical value that has dropped below zero to 0.
-           *
-           * @author Cline
-           * @version 5.0.0
-           * @license MIT
-           */
-
-          // Declare the environment-provided functions to satisfy the TypeScript linter.
-          declare function eventOn(event: string, callback: (...args: any[]) => void): void;
-
-          /**
-           * Recursively traverses the stat_data object, finds any numeric values that have become negative,
-           * and corrects them to 0.
-           *
-           * @param {any} currentObj - The current state of the object being traversed.
-           * @param {string[]} path - The current path for building user-friendly names.
-           * @param {string[]} displayChanges - An array to accumulate log messages for display.
-           * @returns {boolean} - True if any changes were made, otherwise false.
-           */
-          function correctNegativeValuesRecursive(currentObj: any, path: string[], displayChanges: string[]): boolean {
-              let madeChanges = false;
-
-              if (currentObj === null || typeof currentObj !== 'object') {
-                  return false;
-              }
-
-              for (const key in currentObj) {
-                  if (!Object.prototype.hasOwnProperty.call(currentObj, key) || key === '$meta') {
-                      continue;
-                  }
-
-                  const currentValue = currentObj[key];
-                  const newPath = [...path, key];
-
-                  // Case 1: The value is an object, recurse.
-                  if (currentValue !== null && typeof currentValue === 'object') {
-                      if (correctNegativeValuesRecursive(currentValue, newPath, displayChanges)) {
-                          madeChanges = true;
-                      }
-                  }
-                  // Case 2: The value is a number (or in an array format [number, ...]) and has become negative.
-                  else {
-                      let numericValue = Array.isArray(currentValue) ? currentValue[0] : currentValue;
-
-                      if (typeof numericValue === 'number' && numericValue < 0) {
-                          const correctedValue = 0;
-                          const oldValue = numericValue;
-
-                          if (Array.isArray(currentValue)) {
-                              // To ensure change detection, create a new array
-                              const newArray = [...currentValue];
-                              newArray[0] = correctedValue;
-                              currentObj[key] = newArray;
-                          } else {
-                              currentObj[key] = correctedValue;
-                          }
-
-                          const displayName = newPath.join('.');
-                          displayChanges.push(`${displayName}从${oldValue}修正为0(防止负值)`);
-                          madeChanges = true;
-                      }
-                  }
-              }
-              return madeChanges;
-          }
-
-
-          /**
-           * Finalizes the variable update by checking for negative values and correcting them to 0.
-           *
-           * @param {Record<string, any>} variables - The final state of all variables after an update.
-           * @param {boolean} out_is_updated - A flag indicating if any updates occurred.
-           */
-          function finalValidationCheck(variables: Record<string, any>, out_is_updated: boolean) {
-              if (!variables || !variables.stat_data) {
-                  return;
-              }
-
-              const displayChanges: string[] = [];
-              const madeCorrections = correctNegativeValuesRecursive(variables.stat_data, [], displayChanges);
-
-              if (madeCorrections) {
-                  out_is_updated = true;
-                  if (!variables.display_data) {
-                      variables.display_data = {};
-                  }
-                  const logKey = '脚本修正日志';
-                  const existingLog = variables.display_data[logKey] ? `${variables.display_data[logKey]}\n` : '';
-                  variables.display_data[logKey] = `${existingLog}${displayChanges.join('; ')}`;
-              }
-          }
-
-          // Register the validation function to the 'mag_variable_update_ended' event.
-          eventOn('mag_variable_update_ended', finalValidationCheck);
-
-          console.log('shengju-value-corrector.ts v5.0.0 loaded successfully.');
 
       - 名称: 圣柩zod
         id: fee7a4fb-9601-4dbb-9998-1a47b4ea8f70
@@ -1161,12 +995,82 @@
             描述: z.string().prefault(''),
           }).prefault({ 等级: '', 类型: '', 消耗: '', 效果: {}, 描述: '' });
 
+          const 战斗地形Schema = z.object({
+            类型: z.string().prefault(''),
+            描述: z.string().prefault(''),
+            效果: z.record(z.string().describe('效果名'), z.union([z.string(), z.coerce.number(), z.boolean()])).prefault({}),
+          }).prefault({ 类型: '', 描述: '', 效果: {} });
+
+          const 战斗单位Schema = z.object({
+            名称: z.string().prefault(''),
+            阵营: z.string().prefault(''),
+            位置: z.string().regex(/^[LCR](?:[1-9]|1[0-2])$/).catch('C1'),
+            HP: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            最大HP: z.coerce.number().transform(v => Math.max(1, Math.round(v))).prefault(1),
+            AP: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            护甲: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            闪避: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            命中修正: z.coerce.number().transform(v => Math.round(v)).prefault(0),
+            稳定: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            武器: z.string().prefault(''),
+            战术: z.string().prefault(''),
+            状态: z.array(z.string()).prefault([]),
+          }).transform(unit => ({
+            ...unit,
+            HP: Math.min(unit.HP, unit.最大HP),
+          })).prefault({
+            名称: '', 阵营: '', 位置: 'C1', HP: 1, 最大HP: 1, AP: 0, 护甲: 0, 闪避: 0, 命中修正: 0, 稳定: 0, 武器: '', 战术: '', 状态: []
+          });
+
+          const 战斗武器Schema = z.object({
+            名称: z.string().prefault(''),
+            攻击AP: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(50),
+            射程: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(1),
+            伤害: z.coerce.number().transform(v => Math.max(1, Math.round(v))).prefault(1),
+            穿透: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            连射: z.coerce.number().transform(v => Math.max(1, Math.round(v))).prefault(1),
+            命中: z.coerce.number().transform(v => Math.round(v)).prefault(0),
+            范围: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            特性: z.array(z.string()).prefault([]),
+          }).prefault({ 名称: '', 攻击AP: 50, 射程: 1, 伤害: 1, 穿透: 0, 连射: 1, 命中: 0, 范围: 0, 特性: [] });
+
+          const 战斗Schema = z.object({
+            启用: z.boolean().prefault(false),
+            战斗ID: z.string().prefault(''),
+            回合: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            阶段: z.string().prefault(''),
+            随机种子: z.coerce.number().transform(v => Math.max(0, Math.round(v))).prefault(0),
+            地图: z.object({
+              长度: z.coerce.number().transform(v => Math.max(1, Math.round(v))).prefault(12),
+              战线: z.array(z.string()).prefault(['L', 'C', 'R']),
+              地形: z.record(z.string().describe('位置'), 战斗地形Schema).prefault({}),
+            }).prefault({ 长度: 12, 战线: ['L', 'C', 'R'], 地形: {} }),
+            单位: z.record(z.string().describe('单位ID'), 战斗单位Schema).prefault({}),
+            武器库: z.record(z.string().describe('武器ID'), 战斗武器Schema).prefault({}),
+            最近结算: z.object({
+              指令: z.record(z.string(), z.any()).prefault({}),
+              战报: z.array(z.string()).prefault([]),
+              状态摘要: z.string().prefault(''),
+            }).prefault({ 指令: {}, 战报: [], 状态摘要: '' }),
+          }).prefault({
+            启用: false,
+            战斗ID: '',
+            回合: 0,
+            阶段: '',
+            随机种子: 0,
+            地图: { 长度: 12, 战线: ['L', 'C', 'R'], 地形: {} },
+            单位: {},
+            武器库: {},
+            最近结算: { 指令: {}, 战报: [], 状态摘要: '' },
+          });
+
           // 主 Schema 定义
           export const Schema = z.object({
             时间: z.string().prefault(''),
             地点: z.string().prefault(''),
             天气: z.string().prefault(''),
             纳米尘污染等级: z.string().prefault(''),
+            战斗: 战斗Schema,
 
             任务列表: z.record(z.string().describe('任务名称'), z.object({
               类型: z.string().prefault(''),
@@ -1252,6 +1156,7 @@
             }).prefault({ 身份: '', 好感: 0, 外貌: '', 着装: '', 性格: '' })).prefault({}),
 
             人形列表: z.record(z.string().describe('代号'), z.object({
+              当前在场: z.boolean().prefault(true),
               稀有度: z.string().prefault(''),
               精神负荷: z.coerce.number().prefault(0),
               好感: z.coerce.number().prefault(0),
@@ -1270,7 +1175,7 @@
                 成长潜质: z.string().prefault(''),
               }).prefault({ 战术执行力: '', 素体韧性: '', 心智稳定度: '', 环境适应性: '', 成长潜质: '' }),
             }).prefault({
-              稀有度: '', 精神负荷: 0, 好感: 0, 外貌: '', 着装: '', 性格: '', 作战风格: '', 战损程度: '', 装备: {}, 技能: {},
+              当前在场: true, 稀有度: '', 精神负荷: 0, 好感: 0, 外貌: '', 着装: '', 性格: '', 作战风格: '', 战损程度: '', 装备: {}, 技能: {},
               能力: { 战术执行力: '', 素体韧性: '', 心智稳定度: '', 环境适应性: '', 成长潜质: '' }
             })).prefault({}),
 
@@ -1296,5 +1201,8 @@
           $(() => {
             registerMvuSchema(Schema);
           });
+        导出时携带:
+          数据: true
+          按钮: true
 
     变量: {}
