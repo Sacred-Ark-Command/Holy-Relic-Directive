@@ -220,7 +220,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="combat-style">作战风格期望</label>
+          <label for="combat-style">职业期望</label>
           <select id="combat-style">
             <option>突击先锋</option>
             <option>精准射手</option>
@@ -544,7 +544,7 @@
         message += `
 ### 初始人形设定
 - **性格期望:** ${personality}
-- **作战风格期望:** ${combatStyle}
+- **职业期望:** ${combatStyle}
 - **稀有度:** ${rarity}
 - **人形能力:**
   - 战术执行力: ${stat1}

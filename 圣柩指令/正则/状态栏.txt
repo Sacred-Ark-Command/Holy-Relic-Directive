@@ -1492,9 +1492,9 @@
                     </div>
                 </div>
                 <div class="property property-full-width">
-                    <div class="property-name" style="grid-area: name;">作战风格</div>
+                    <div class="property-name" style="grid-area: name;">职业</div>
                     <div class="property-value-container value-container-right" style="grid-area: value;">
-                        <span class="value-description text-wrap" style="color: var(--text-primary);">${SafeGetValue(dollData, '作战风格', 'N/A')}</span>
+                        <span class="value-description text-wrap" style="color: var(--text-primary);">${SafeGetValue(dollData, '职业', 'N/A')}</span>
                     </div>
                 </div>
                 ${dollSkillsHtml}

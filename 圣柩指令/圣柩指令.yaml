@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://testingcf.jsdelivr.net/gh/StageDog/tavern_sync/dist/schema/character.zh.json
 头像: 头像
 版本: beta-1.0.1
-作者: ""
+作者: ''
 备注: "Copyright © 2025 FL All Rights Reserved\r
 
   licensed under CC BY-NC-SA 4.0"
@@ -13,7 +13,7 @@
   - 文件: 第一条消息\3
   - 内容: 【开局】
 
-角色描述: ""
+角色描述: ''
 
 锚点: {}
 
@@ -34,7 +34,7 @@
       不可激活其他条目: true
     文件: 世界书\COT\COT(看情况)
 
-  - 名称: "[InitVar]世界初始设定"
+  - 名称: '[InitVar]世界初始设定'
     启用: false
     激活策略:
       类型: 绿灯
@@ -49,7 +49,7 @@
       不可激活其他条目: false
     文件: 世界书\变量\[InitVar]世界初始设定
 
-  - 名称: "[mvu_update]变量输出格式"
+  - 名称: '[mvu_update]变量输出格式'
     启用: false
     激活策略:
       类型: 蓝灯
@@ -64,7 +64,7 @@
       不可激活其他条目: true
     文件: 世界书\变量\[mvu_update]变量输出格式
 
-  - 名称: "[mvu_update]变量更新规则"
+  - 名称: '[mvu_update]变量更新规则'
     启用: false
     激活策略:
       类型: 蓝灯
@@ -94,7 +94,7 @@
       不可激活其他条目: true
     文件: 世界书\变量\output_format_(随AI输出开，主API)
 
-  - 名称: "[mvu_update]output_format_(使用额外模型更新变量开)"
+  - 名称: '[mvu_update]output_format_(使用额外模型更新变量开)'
     启用: false
     激活策略:
       类型: 蓝灯
@@ -509,12 +509,12 @@
       不可激活其他条目: true
     文件: 世界书\圣柩人形\圣柩人形-羁绊深度分阶段
 
-  - 名称: 圣柩人形-作战风格与专长
+  - 名称: 圣柩人形-职业体系
     启用: true
     激活策略:
       类型: 绿灯
       关键字:
-        - 作战风格
+        - 职业
         - 专长
         - 圣柩人形
         - 突击先锋
@@ -528,7 +528,7 @@
     递归:
       不可被其他条目激活: true
       不可激活其他条目: true
-    文件: 世界书\圣柩人形\圣柩人形-作战风格与专长
+    文件: 世界书\圣柩人形\圣柩人形-职业体系
 
   - 名称: 陆行舰
     启用: true
@@ -856,7 +856,7 @@
       id: 794939e4-6159-4c50-8d24-1a6562ec9cff
       启用: true
       查找表达式: <StatusPlaceHolderImpl/>
-      内容: ""
+      内容: ''
       来源:
         用户输入: false
         AI输出: true
@@ -868,7 +868,7 @@
       id: ae35ec9b-bf77-44d0-987a-4ed978acfbc0
       启用: true
       查找表达式: /<UpdateVariable>[\s\S]*?</UpdateVariable>/gm
-      内容: ""
+      内容: ''
       来源:
         用户输入: false
         AI输出: true
@@ -1166,7 +1166,7 @@
               外貌: z.string().prefault(''),
               着装: z.string().prefault(''),
               性格: z.string().prefault(''),
-              作战风格: z.string().prefault(''),
+              职业: z.string().prefault(''),
               战损程度: z.string().prefault(''),
               装备: z.record(z.string().describe('装备名'), 装备Schema).prefault({}),
               技能: z.record(z.string().describe('技能名'), 人形技能Schema).prefault({}),
@@ -1180,7 +1180,7 @@
                 素体潜能: z.string().prefault(''),
               }).prefault({ 破坏能级: '', 结构韧性: '', 神经机动: '', 链路算力: '', 工程制造: '', 理智屏障: '', 素体潜能: '' }),
             }).prefault({
-              当前在场: true, 稀有度: '', 精神负荷: 0, 好感: 0, 外貌: '', 着装: '', 性格: '', 作战风格: '', 战损程度: '', 装备: {}, 技能: {},
+              当前在场: true, 稀有度: '', 精神负荷: 0, 好感: 0, 外貌: '', 着装: '', 性格: '', 职业: '', 战损程度: '', 装备: {}, 技能: {},
               能力: { 破坏能级: '', 结构韧性: '', 神经机动: '', 链路算力: '', 工程制造: '', 理智屏障: '', 素体潜能: '' }
             })).prefault({}),
 

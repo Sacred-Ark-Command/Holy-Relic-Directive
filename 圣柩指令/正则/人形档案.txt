@@ -354,7 +354,7 @@
                     <div class="detail-section"><div class="detail-label">外貌</div><div class="detail-value">${doll.looks}</div></div>
                     <div class="detail-section"><div class="detail-label">着装</div><div class="detail-value">${doll.wear}</div></div>
                     <div class="detail-section"><div class="detail-label">性格</div><div class="detail-value">${doll.per}</div></div>
-                    <div class="detail-section"><div class="detail-label">作战风格</div><div class="detail-value">${doll.war}</div></div>
+                    <div class="detail-section"><div class="detail-label">职业</div><div class="detail-value">${doll.war}</div></div>
                     <div class="detail-section"><div class="detail-label">专长</div><div class="detail-value">${doll.forte}</div></div>
                     <div class="detail-section"><div class="detail-label">人形武装</div><div class="detail-value">${doll.armed}</div></div>
                 `;

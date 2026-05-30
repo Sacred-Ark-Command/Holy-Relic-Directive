@@ -243,6 +243,7 @@ variables_update_rules:
           性格: string;
           外貌: string;
           着装: string;
+          职业: string;
           战术: string;
           战损程度: string;
           装备: { [装备名: string]: { 等级: string; 类型: string; 位置: string; 射程: string; 射击次数: string; 威力: string; 效果: { [k: string]: string }; 描述: string; 状态: string } };
@@ -265,7 +266,7 @@ variables_update_rules:
       身份: *identity
       稀有度:
         type: string
-        range: D|C|B|A|S|SS|SSS|EX
+        range: D|C|B|A|S|X|EX
         check:
           - 随SRB认证而更新
       精神负荷:
@@ -290,6 +291,11 @@ variables_update_rules:
         check:
         - 记录角色当前默认行动指令或战斗倾向
         - 仅在角色明确调整战术、战场条件迫使战术变化或长期行为稳定改变时更新
+      职业: 
+        type: string
+        check:
+          - 记录角色当前职业或主要功能定位
+          - 仅在角色职业发生实质性变化时更新，例如从侦察转为突击，从医疗转为工程等
       战损程度:
         type: string
         check:
@@ -297,9 +303,9 @@ variables_update_rules:
       装备: *equip
       植入物: *implant
       技能: *skill
-      能力.${七维}: 
+      能力.${六维检定与潜能}: 
         type: string
-        七维: 破坏能级 | 结构韧性 | 神经机动 | 链路算力 | 工程制造 | 理智屏障 | 素体潜能
+        六维检定与潜能: 破坏能级 | 结构韧性 | 神经机动 | 链路算力 | 工程制造 | 理智屏障 | 素体潜能
       check:
         - 随明确机体数据变化而更新
   资讯:
